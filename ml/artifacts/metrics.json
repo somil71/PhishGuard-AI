@@ -1,0 +1,1214 @@
+{
+  "primary_model": "Ensemble (PhishGuard)",
+  "test_samples_count": 2400,
+  "primary_metrics": {
+    "accuracy": 0.9992,
+    "precision": 1.0,
+    "recall": 0.9983,
+    "f1_score": 0.9992,
+    "roc_auc": 1.0,
+    "confusion_matrix": {
+      "true_negative": 1200,
+      "false_positive": 0,
+      "false_negative": 2,
+      "true_positive": 1198
+    },
+    "roc_curve": [
+      {
+        "fpr": 0.0,
+        "tpr": 0.0
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.3167
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.4208
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.445
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.4675
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.52
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.5583
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.575
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.595
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.7183
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.7367
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.7508
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.7692
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.7817
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.805
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.8133
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.83
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.8433
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.8867
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.9017
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.9192
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.93
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.9425
+      },
+      {
+        "fpr": 0.0,
+        "tpr": 0.9542
+      },
+      {
+        "fpr": 0.0008,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.0417,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.0783,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.0892,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.1133,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.1258,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.14,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.1625,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.1742,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.19,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.2167,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.2308,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.2592,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.2725,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.2833,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.2942,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.3092,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.335,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.3567,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.4042,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.4142,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.4692,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.5058,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.52,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.5325,
+        "tpr": 1.0
+      },
+      {
+        "fpr": 0.6717,
+        "tpr": 1.0
+      }
+    ]
+  },
+  "model_comparison": {
+    "LightGBM": {
+      "accuracy": 0.9992,
+      "precision": 1.0,
+      "recall": 0.9983,
+      "f1_score": 0.9992,
+      "roc_auc": 0.9999,
+      "confusion_matrix": {
+        "true_negative": 1200,
+        "false_positive": 0,
+        "false_negative": 2,
+        "true_positive": 1198
+      },
+      "roc_curve": [
+        {
+          "fpr": 0.0,
+          "tpr": 0.0
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0025
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0083
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0125
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0192
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0267
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0292
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0325
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0358
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0442
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0508
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0608
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0792
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0842
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.0983
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.105
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.1375
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.2592
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9325
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9417
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9442
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9533
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9567
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.96
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9675
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9842
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9892
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0142,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0233,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0258,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0317,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.04,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0433,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0442,
+          "tpr": 0.9992
+        },
+        {
+          "fpr": 0.0517,
+          "tpr": 0.9992
+        },
+        {
+          "fpr": 0.0558,
+          "tpr": 0.9992
+        },
+        {
+          "fpr": 0.0692,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0725,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.075,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0833,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0917,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0958,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9125,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.93,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.94,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9467,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9533,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9625,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9683,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9792,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9817,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9875,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9917,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.9958,
+          "tpr": 1.0
+        }
+      ]
+    },
+    "XGBoost": {
+      "accuracy": 0.9988,
+      "precision": 0.9992,
+      "recall": 0.9983,
+      "f1_score": 0.9987,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "true_negative": 1199,
+        "false_positive": 1,
+        "false_negative": 2,
+        "true_positive": 1198
+      },
+      "roc_curve": [
+        {
+          "fpr": 0.0,
+          "tpr": 0.0
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.3217
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.4275
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.4392
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.4725
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.495
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.5308
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.565
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.5825
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.5908
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.6083
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.7317
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.745
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.76
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.7808
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.7892
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8042
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8183
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8258
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8425
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8542
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8725
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8792
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8875
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9108
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.925
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9417
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9575
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9692
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9783
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0067,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0167,
+          "tpr": 0.9983
+        },
+        {
+          "fpr": 0.0242,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0367,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0458,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0583,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0708,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.09,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1033,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1133,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.125,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1358,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.155,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1683,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2025,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2125,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2192,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.23,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2433,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2617,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2825,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.3267,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.3333,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.3917,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.4508,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.6017,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 1.0
+        }
+      ]
+    },
+    "Random Forest": {
+      "accuracy": 0.9996,
+      "precision": 1.0,
+      "recall": 0.9992,
+      "f1_score": 0.9996,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "true_negative": 1200,
+        "false_positive": 0,
+        "false_negative": 1,
+        "true_positive": 1199
+      },
+      "roc_curve": [
+        {
+          "fpr": 0.0,
+          "tpr": 0.0
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9375
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9383
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9592
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9608
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9692
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9733
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9742
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.98
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9808
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9842
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9858
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9867
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.99
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0033,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.005,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0067,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0083,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0117,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0142,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0158,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0167,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0208,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0242,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0333,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.035,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0367,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0458,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0492,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0508,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0517,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0542,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0558,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0592,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0925,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0958,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1042,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1075,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1092,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1158,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1192,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.12,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1217,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1292,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.135,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1392,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1708,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1758,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.3492,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 1.0
+        }
+      ]
+    },
+    "Ensemble (PhishGuard)": {
+      "accuracy": 0.9992,
+      "precision": 1.0,
+      "recall": 0.9983,
+      "f1_score": 0.9992,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "true_negative": 1200,
+        "false_positive": 0,
+        "false_negative": 2,
+        "true_positive": 1198
+      },
+      "roc_curve": [
+        {
+          "fpr": 0.0,
+          "tpr": 0.0
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.3167
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.4208
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.445
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.4675
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.52
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.5583
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.575
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.595
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.7183
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.7367
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.7508
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.7692
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.7817
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.805
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8133
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.83
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8433
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.8867
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9017
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9192
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.93
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9425
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.9542
+        },
+        {
+          "fpr": 0.0008,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0417,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0783,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.0892,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1133,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1258,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.14,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1625,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.1742,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.19,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2167,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2308,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2592,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2725,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2833,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.2942,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.3092,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.335,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.3567,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.4042,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.4142,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.4692,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5058,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.52,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5325,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.6717,
+          "tpr": 1.0
+        }
+      ]
+    }
+  },
+  "global_importance": [
+    {
+      "feature": "sensitive_keywords_count",
+      "importance": 4.8302,
+      "description": "Count of credential/banking keywords in URL"
+    },
+    {
+      "feature": "suspicious_tld",
+      "importance": 1.0684,
+      "description": "Flag for top-level domains frequently abused by phishing"
+    },
+    {
+      "feature": "normalized_brand_dist",
+      "importance": 0.9016,
+      "description": "Normalized Levenshtein distance to closest target brand"
+    },
+    {
+      "feature": "num_subdomains",
+      "importance": 0.6906,
+      "description": "Number of hierarchical subdomain levels"
+    },
+    {
+      "feature": "num_hyphens",
+      "importance": 0.6377,
+      "description": "Count of hyphen (-) characters"
+    },
+    {
+      "feature": "is_https",
+      "importance": 0.629,
+      "description": "Binary flag: whether scheme uses TLS/HTTPS"
+    },
+    {
+      "feature": "path_entropy",
+      "importance": 0.1997,
+      "description": "Shannon information entropy of the path"
+    },
+    {
+      "feature": "brand_impersonation",
+      "importance": 0.1114,
+      "description": "Flag for spoofing high-value brand names or typosquatting"
+    },
+    {
+      "feature": "domain_length",
+      "importance": 0.0926,
+      "description": "Length of host/netloc component"
+    },
+    {
+      "feature": "num_digits",
+      "importance": 0.0338,
+      "description": "Total count of numeric characters"
+    },
+    {
+      "feature": "digit_ratio",
+      "importance": 0.0262,
+      "description": "Ratio of numeric characters to total URL length"
+    },
+    {
+      "feature": "path_length",
+      "importance": 0.0229,
+      "description": "Length of URL path directory structure"
+    },
+    {
+      "feature": "num_slashes",
+      "importance": 0.0177,
+      "description": "Count of forward slash (/) characters"
+    },
+    {
+      "feature": "url_entropy",
+      "importance": 0.017,
+      "description": "Shannon information entropy of the full URL"
+    },
+    {
+      "feature": "domain_entropy",
+      "importance": 0.0132,
+      "description": "Shannon information entropy of the domain"
+    }
+  ]
+}
