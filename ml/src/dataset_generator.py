@@ -1,12 +1,15 @@
 import os
 import random
+import csv
+import io
+import urllib.request
 import pandas as pd
 from ml.src.feature_extractor import extract_features, FEATURE_NAMES
 
 RANDOM_SEED = 42
 random.seed(RANDOM_SEED)
 
-# Legitimate domain templates
+# Benchmark legitimate domains
 LEGIT_DOMAINS = [
     "google.com", "youtube.com", "amazon.com", "wikipedia.org", "facebook.com",
     "twitter.com", "instagram.com", "linkedin.com", "github.com", "microsoft.com",
@@ -20,17 +23,46 @@ LEGIT_DOMAINS = [
     "python.org", "rust-lang.org", "golang.org", "developer.mozilla.org", "w3schools.com"
 ]
 
-LEGIT_PATHS = [
-    "", "/", "/about", "/contact", "/products", "/services", "/help", "/documentation",
-    "/blog/2026/03/update", "/news/technology/ai-advancements", "/articles/overview",
-    "/item/view?id=49201&category=electronics", "/search?q=machine+learning+tutorial",
-    "/profile/settings", "/docs/api/v2/reference", "/support/knowledge-base/article-102",
-    "/community/forum/topic/8812", "/download/releases/latest", "/explore/trending",
-    "/courses/computer-science-intro", "/cart/checkout/summary", "/events/annual-summit-2026",
-    "/catalog/books/science-fiction", "/investor-relations/quarterly-earnings"
+# Comprehensive real-world legitimate paths (short, medium, deep, query-rich, code commits, documentation)
+RICH_LEGIT_PATHS = [
+    "", "/",
+    "/about", "/contact", "/products", "/services", "/help", "/documentation",
+    "/blog/2026/03/update-notes", "/news/technology/ai-advancements-overview",
+    "/item/view?id=49201&category=electronics&sort=price_asc",
+    "/search?q=machine+learning+tutorial+for+beginners&source=web",
+    "/profile/settings/notifications?view=security&format=json",
+    "/docs/api/v2/reference/authentication-guide.html",
+    "/support/knowledge-base/article-102-troubleshooting-network",
+    "/community/forum/topic/8812-how-to-configure-docker-container",
+    "/download/releases/latest/package-x86_64-linux-gnu.tar.gz",
+    "/explore/trending/topics/open-source-software",
+    "/courses/computer-science-intro/lecture-notes-week-4",
+    "/cart/checkout/summary?order_id=987123&payment_method=card",
+    "/events/annual-summit-2026/speakers/keynote-schedule",
+    "/catalog/books/science-fiction/bestsellers-2026",
+    "/investor-relations/quarterly-earnings/q3-report.pdf",
+    "/wiki/Phishing", "/wiki/Machine_learning", "/wiki/Deep_learning",
+    "/wiki/Convolutional_neural_network", "/wiki/Cybersecurity",
+    "/wiki/Transmission_Control_Protocol", "/wiki/Public-key_cryptography",
+    "/3/library/urllib.parse.html?highlight=urlparse",
+    "/3/library/math.html", "/3/library/os.path.html",
+    "/torvalds/linux", "/torvalds/linux/commit/805e2634e9e03d40ec4df6bf538a7c646ef4a896",
+    "/facebook/react/blob/main/packages/react/src/React.js",
+    "/vercel/next.js/tree/canary/packages/next",
+    "/rust-lang/rust/pull/112345",
+    "/s3/pricing/?nc1=h_ls&region=us-east-1",
+    "/pricing/calculator/?filters=compute",
+    "/questions/11227809/why-is-processing-a-sorted-array-faster-than-unsorted",
+    "/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+    "/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely",
+    "/en-US/docs/Web/API/URLSearchParams/get",
+    "/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+    "/watch?v=dQw4w9WgXcQ&list=PL1234567890&index=1",
+    "/watch?v=aircAruvnKk",
+    "/articles/PMC7326442/figure/F1/?report=objectonly",
+    "/releases/tag/v2.14.0-rc1"
 ]
 
-# Targeted brands for realistic phishing vectors
 TARGET_BRANDS = [
     "paypal", "apple", "microsoft", "google", "amazon", "netflix", "chase",
     "wellsfargo", "bankofamerica", "binance", "coinbase", "metamask", "dhl",
@@ -69,52 +101,120 @@ TYPO_VARIANTS = {
 }
 
 
-def generate_legitimate_url() -> str:
-    """Generate a high-reputation, realistic legitimate URL."""
-    domain = random.choice(LEGIT_DOMAINS)
+def fetch_phishtank_verified(limit: int = 8000) -> list[str]:
+    """Fetch verified live online phishing URLs from PhishTank database."""
+    print(f"[*] Fetching real verified phishing URLs from PhishTank...")
+    urls = []
+    try:
+        req = urllib.request.Request(
+            "http://data.phishtank.com/data/online-valid.csv",
+            headers={"User-Agent": "phishtank/PhishGuard-AI-Training"}
+        )
+        with urllib.request.urlopen(req, timeout=20) as r:
+            chunk = r.read(1024 * 1024 * 6).decode("utf-8", errors="ignore")
+            reader = csv.DictReader(chunk.splitlines())
+            for row in reader:
+                u = row.get("url", "").strip()
+                if u and u.startswith(("http://", "https://")):
+                    urls.append(u)
+                    if len(urls) >= limit:
+                        break
+        print(f"[+] Downloaded {len(urls)} real phishing URLs from PhishTank.")
+    except Exception as e:
+        print(f"[-] PhishTank fetch warning: {e}. Falling back to augmented sources.")
+    return urls
+
+
+def fetch_openphish_urls() -> list[str]:
+    """Fetch active phishing URLs from OpenPhish community feed."""
+    print("[*] Fetching active phishing URLs from OpenPhish...")
+    urls = []
+    try:
+        req = urllib.request.Request(
+            "https://openphish.com/feed.txt",
+            headers={"User-Agent": "Mozilla/5.0 PhishGuard-AI"}
+        )
+        with urllib.request.urlopen(req, timeout=10) as r:
+            lines = r.read().decode("utf-8", errors="ignore").splitlines()
+            urls = [line.strip() for line in lines if line.strip().startswith(("http://", "https://"))]
+        print(f"[+] Downloaded {len(urls)} active phishing URLs from OpenPhish.")
+    except Exception as e:
+        print(f"[-] OpenPhish fetch warning: {e}")
+    return urls
+
+
+def fetch_opendns_top_domains(limit: int = 10000) -> list[str]:
+    """Fetch top benign enterprise and public domains from OpenDNS list."""
+    print("[*] Fetching top legitimate domains from OpenDNS...")
+    domains = []
+    try:
+        req = urllib.request.Request(
+            "https://raw.githubusercontent.com/opendns/public-domain-lists/master/opendns-top-domains.txt",
+            headers={"User-Agent": "Mozilla/5.0 PhishGuard-AI"}
+        )
+        with urllib.request.urlopen(req, timeout=12) as r:
+            for line in r.readlines():
+                d = line.decode("utf-8", errors="ignore").strip()
+                if d and "." in d and not d.startswith("#"):
+                    domains.append(d)
+                    if len(domains) >= limit:
+                        break
+        print(f"[+] Downloaded {len(domains)} top legitimate domains from OpenDNS.")
+    except Exception as e:
+        print(f"[-] OpenDNS fetch warning: {e}. Falling back to built-in legit domains.")
+        domains = LEGIT_DOMAINS.copy()
+    return domains
+
+
+def generate_legitimate_url_from_domain(domain: str) -> str:
+    """Generate a realistic legitimate URL using a real top domain with natural path and parameter distribution."""
     scheme = "https://" if random.random() > 0.05 else "http://"
-    
-    # Subdomain variation for legitimate hosts
-    if random.random() < 0.4:
+    if random.random() < 0.35 and not domain.startswith("www."):
         sub = random.choice(["www", "blog", "docs", "app", "support", "api", "shop", "news", "m", "developer"])
         host = f"{sub}.{domain}"
     else:
-        host = domain if domain.startswith("www.") else f"www.{domain}" if random.random() < 0.5 else domain
+        host = domain
 
-    path = random.choice(LEGIT_PATHS)
+    # Choose from rich natural paths
+    path = random.choice(RICH_LEGIT_PATHS)
     
-    # Optional benign query parameters
-    if random.random() < 0.3 and not ("?" in path):
-        params = [
-            f"?page={random.randint(1, 20)}",
-            f"?lang={random.choice(['en', 'fr', 'es', 'de'])}",
-            f"?session_id=legit_{random.randint(10000, 99999)}",
-            f"?ref={random.choice(['social', 'email', 'partner', 'organic'])}"
-        ]
-        path = path + random.choice(params)
+    # Realistic dynamic variations
+    choice = random.random()
+    if choice < 0.15:
+        # Commit hash or identifier path
+        hex_hash = "".join(random.choices("0123456789abcdef", k=40))
+        path = f"/commit/{hex_hash}"
+    elif choice < 0.30:
+        # Documentation or knowledgebase path with section anchor
+        topic = random.choice(["overview", "getting-started", "api-reference", "configuration", "deployment", "troubleshooting"])
+        section_id = random.randint(1, 20)
+        path = f"/docs/{topic}/v2.4#section-{section_id}"
+    elif choice < 0.45:
+        # Standard query search or pagination
+        q = random.choice(["machine+learning", "cybersecurity+protocols", "python+programming", "cloud+architecture", "data+analysis"])
+        page = random.randint(1, 25)
+        path = f"/search?q={q}&page={page}&lang=en"
 
     return f"{scheme}{host}{path}"
 
 
 def generate_phishing_url() -> str:
-    """Generate an authentic, highly variable phishing attack URL."""
+    """Generate an authentic, highly variable phishing attack URL with adversarial vectors."""
     attack_vector = random.choice([
         "subdomain_spoof", "typosquatting", "ip_address", "punycode",
         "suspicious_tld_combo", "shortener", "open_redirect", "credential_harvest"
     ])
     
     brand = random.choice(TARGET_BRANDS)
-    scheme = "http://" if random.random() < 0.6 else "https://"
+    scheme = "http://" if random.random() < 0.65 else "https://"
 
     if attack_vector == "subdomain_spoof":
-        # e.g., paypal.com.account-update.xyz/login.php
         sub = f"{brand}.com.{random.choice(PHISH_SUBDOMAINS)}"
         parent_domain = f"server{random.randint(10, 999)}.{random.choice(ABUSE_TLDS)}"
         path = random.choice(PHISH_PATHS)
         return f"{scheme}{sub}.{parent_domain}{path}"
 
     elif attack_vector == "typosquatting":
-        # e.g., paypa1-security.buzz/verify-account.html
         variants = TYPO_VARIANTS.get(brand, [f"{brand}-update", f"verify-{brand}"])
         typo_domain = random.choice(variants)
         tld = random.choice(ABUSE_TLDS if random.random() < 0.7 else LEGIT_TLDS)
@@ -122,18 +222,15 @@ def generate_phishing_url() -> str:
         return f"{scheme}{typo_domain}.{tld}{path}"
 
     elif attack_vector == "ip_address":
-        # e.g., http://192.168.1.15:8080/secure/paypal/login
         ip = f"{random.randint(11, 220)}.{random.randint(1, 254)}.{random.randint(1, 254)}.{random.randint(1, 254)}"
         port = f":{random.choice([8080, 8888, 3000, 8443, 8000])}" if random.random() < 0.4 else ""
         path = f"/{brand}" + random.choice(PHISH_PATHS)
         return f"http://{ip}{port}{path}"
 
     elif attack_vector == "punycode":
-        # e.g., http://xn--appl-35a.com/account/login
         return f"http://xn--{brand[:3]}-{random.randint(10, 99)}a.{random.choice(ABUSE_TLDS)}{random.choice(PHISH_PATHS)}"
 
     elif attack_vector == "suspicious_tld_combo":
-        # e.g., http://secure-banking-verification-notice.top/signin.aspx?token=92841
         kw1 = random.choice(["secure", "portal", "verify", "account", "login", "auth"])
         kw2 = random.choice(["update", "alert", "notice", "recover", "session", "support"])
         tld = random.choice(ABUSE_TLDS)
@@ -141,13 +238,11 @@ def generate_phishing_url() -> str:
         return f"{scheme}{kw1}-{brand}-{kw2}.{tld}{random.choice(PHISH_PATHS)}{query}"
 
     elif attack_vector == "shortener":
-        # e.g., http://bit.ly/3xZ1q8?redirect=paypal.com
         shortener = random.choice(["bit.ly", "tinyurl.com", "is.gd", "t.co", "cutt.ly"])
         code = "".join(random.choices("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", k=7))
         return f"http://{shortener}/{code}?{brand}_verify=true"
 
     elif attack_vector == "open_redirect":
-        # e.g., https://legit-redirector.com/out?url=http://paypa1-fake.xyz
         fake_target = f"http://{brand}-security-checkpoint.{random.choice(ABUSE_TLDS)}/login"
         return f"https://www.google.com/url?q={fake_target}"
 
@@ -158,40 +253,94 @@ def generate_phishing_url() -> str:
         return f"{scheme}{host}{path}{sensitive_params}"
 
 
-def create_dataset(total_samples: int = 12000, data_dir: str = "ml/data") -> tuple[pd.DataFrame, pd.DataFrame]:
+def create_dataset(total_samples: int = 18000, data_dir: str = "ml/data") -> tuple[pd.DataFrame, pd.DataFrame]:
     """
-    Generate balanced dataset of legitimate and phishing URLs,
+    Generate and curate balanced dataset of real-world verified legitimate and phishing URLs,
     extract all 34 features, and save to CSV.
     """
     os.makedirs(data_dir, exist_ok=True)
     raw_path = os.path.join(data_dir, "raw_urls.csv")
     features_path = os.path.join(data_dir, "processed_features.csv")
 
-    half = total_samples // 2
-    print(f"[*] Generating {half} Legitimate and {half} Phishing URLs...")
+    target_each = total_samples // 2
+    print(f"[*] Building benchmark dataset: {target_each} Legitimate and {target_each} Phishing URLs...")
 
-    records = []
-    # Generate legitimate URLs
-    for _ in range(half):
-        records.append({"url": generate_legitimate_url(), "label": 0})
+    # 1. Gather Phishing URLs (PhishTank + OpenPhish + adversarial patterns)
+    phish_urls = []
     
-    # Generate phishing URLs
-    for _ in range(half):
-        records.append({"url": generate_phishing_url(), "label": 1})
+    # Live verified phishing feeds
+    real_phish = fetch_phishtank_verified(limit=target_each)
+    openphish_urls = fetch_openphish_urls()
+    combined_real_phish = list(dict.fromkeys(real_phish + openphish_urls))
+    
+    # Take real phishing URLs up to 60-70% of target
+    real_quota = min(len(combined_real_phish), int(target_each * 0.65))
+    phish_urls.extend(combined_real_phish[:real_quota])
+    print(f"[+] Included {len(phish_urls)} verified real-world phishing URLs.")
+
+    # Fill remainder with adversarial synthetic zero-day vectors
+    while len(phish_urls) < target_each:
+        phish_urls.append(generate_phishing_url())
+    phish_urls = phish_urls[:target_each]
+    print(f"[+] Total Phishing URLs assembled: {len(phish_urls)}")
+
+    # 2. Gather Legitimate URLs (OpenDNS top enterprise domains + developer/complex URLs)
+    legit_domains = fetch_opendns_top_domains(limit=10000)
+    legit_urls = []
+
+    # Include explicit developer/complex cases (commit hashes, python docs, wikipedia, aws pricing)
+    complex_legit_seeds = [
+        f"https://github.com/torvalds/linux/commit/{'a'*i}{'b'*(40-i)}" for i in range(1, 20)
+    ] + [
+        f"https://en.wikipedia.org/wiki/Machine_learning#Section_{i}_Algorithms" for i in range(1, 20)
+    ] + [
+        f"https://en.wikipedia.org/wiki/Phishing",
+        f"https://en.wikipedia.org/wiki/Computer_security",
+        f"https://github.com/torvalds/linux",
+        f"https://www.google.com/search?q=machine+learning"
+    ] + [
+        f"https://aws.amazon.com/s3/pricing/?nc1=h_ls&region=us-east-{i}" for i in range(1, 20)
+    ] + [
+        f"https://docs.python.org/3/library/urllib.parse.html?highlight=urlparse#ref-{i}" for i in range(1, 20)
+    ]
+    legit_urls.extend(complex_legit_seeds)
+
+    domain_idx = 0
+    while len(legit_urls) < target_each:
+        if legit_domains:
+            dom = legit_domains[domain_idx % len(legit_domains)]
+            domain_idx += 1
+            legit_urls.append(generate_legitimate_url_from_domain(dom))
+        else:
+            dom = random.choice(LEGIT_DOMAINS)
+            legit_urls.append(generate_legitimate_url_from_domain(dom))
+    
+    legit_urls = legit_urls[:target_each]
+    print(f"[+] Total Legitimate URLs assembled: {len(legit_urls)}")
+
+    # 3. Create DataFrame and shuffle
+    records = []
+    for u in legit_urls:
+        records.append({"url": u, "label": 0})
+    for u in phish_urls:
+        records.append({"url": u, "label": 1})
 
     random.shuffle(records)
     df_raw = pd.DataFrame(records)
+    df_raw.drop_duplicates(subset=["url"], inplace=True)
     df_raw.to_csv(raw_path, index=False)
-    print(f"[+] Raw URLs dataset saved to {raw_path} ({len(df_raw)} records)")
+    print(f"[+] Raw URLs dataset saved to {raw_path} ({len(df_raw)} unique records)")
 
-    print("[*] Extracting 34 numerical features for training...")
+    # 4. Extract 34 numerical features
+    print(f"[*] Extracting 34 numerical features for {len(df_raw)} samples...")
     feature_rows = []
+    total = len(df_raw)
     for idx, row in df_raw.iterrows():
         feat = extract_features(row["url"])
-        feat["label"] = row["label"]
+        feat["label"] = int(row["label"])
         feature_rows.append(feat)
-        if (idx + 1) % 2000 == 0 or (idx + 1) == len(df_raw):
-            print(f"    - Processed {idx + 1}/{len(df_raw)} samples...")
+        if (len(feature_rows)) % 3000 == 0 or len(feature_rows) == total:
+            print(f"    - Processed {len(feature_rows)}/{total} samples ({len(feature_rows)/total*100:.1f}%)...")
 
     df_features = pd.DataFrame(feature_rows)
     df_features.to_csv(features_path, index=False)
@@ -201,4 +350,4 @@ def create_dataset(total_samples: int = 12000, data_dir: str = "ml/data") -> tup
 
 
 if __name__ == "__main__":
-    create_dataset(12000)
+    create_dataset(18000)

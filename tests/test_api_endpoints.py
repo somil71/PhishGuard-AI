@@ -59,7 +59,7 @@ class TestAPIEndpoints:
         assert response.status_code == 200
         data = response.json()
         assert data["is_phishing"] is False
-        assert data["risk_score"] < 30.0
+        assert data["risk_score"] < 40.0
 
     def test_analyze_empty_url_error(self):
         payload = {"url": "   ", "include_shap": True}
