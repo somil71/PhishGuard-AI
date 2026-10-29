@@ -8,7 +8,8 @@ SUSPICIOUS_TLDS = {
     'xyz', 'top', 'work', 'buzz', 'click', 'tk', 'ml', 'ga', 'cf', 'gq',
     'cam', 'monster', 'rest', 'fit', 'club', 'loan', 'racing', 'date',
     'win', 'stream', 'party', 'live', 'support', 'cyou', 'vip', 'quest',
-    'icu', 'sbs', 'cfd', 'shop', 'online', 'space', 'site'
+    'icu', 'sbs', 'cfd', 'shop', 'online', 'space', 'site', 'broker',
+    'bond', 'mom', 'qpon', 'ss', 'kz', 'pw', 'cc', 'su', 'to'
 }
 
 # Known URL shorteners
@@ -22,7 +23,10 @@ TARGET_BRANDS = [
     'paypal', 'apple', 'microsoft', 'google', 'amazon', 'netflix', 'chase',
     'wellsfargo', 'bankofamerica', 'citibank', 'facebook', 'instagram',
     'twitter', 'linkedin', 'binance', 'coinbase', 'metamask', 'dropbox',
-    'adobe', 'dhl', 'fedex', 'usps', 'walmart', 'ebay', 'steam'
+    'adobe', 'dhl', 'fedex', 'usps', 'walmart', 'ebay', 'steam',
+    'roblox', 'discord', 'telegram', 'whatsapp', 'spotify', 'tiktok',
+    'snapchat', 'outlook', 'yahoo', 'aol', 'icloud', 'okta', 'zoom',
+    'slack', 'docusign', 'allegro'
 ]
 
 # Sensitive keywords indicating credential harvesting or fraud
