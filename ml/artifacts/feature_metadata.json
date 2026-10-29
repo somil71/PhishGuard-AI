@@ -73,239 +73,239 @@
   },
   "statistics": {
     "url_length": {
-      "mean": 58.84545862804536,
-      "std": 34.222356466496706,
-      "min": 14.0,
+      "mean": 59.93837243218467,
+      "std": 50.6957608242372,
+      "min": 15.0,
       "max": 1370.0,
       "description": "Total character count of the URL"
     },
     "domain_length": {
-      "mean": 18.88845851577411,
-      "std": 9.455772316716823,
-      "min": 4.0,
-      "max": 92.0,
+      "mean": 19.467352806366932,
+      "std": 14.230028634243927,
+      "min": 3.0,
+      "max": 239.0,
       "description": "Length of host/netloc component"
     },
     "path_length": {
-      "mean": 20.607611990569215,
-      "std": 19.128299251290034,
+      "mean": 23.613567231968,
+      "std": 24.48029717310828,
       "min": 0.0,
-      "max": 195.0,
+      "max": 273.0,
       "description": "Length of URL path directory structure"
     },
     "query_length": {
-      "mean": 10.278039744021557,
-      "std": 30.37325009799026,
+      "mean": 8.925871911329638,
+      "std": 40.89015831887553,
       "min": 0.0,
       "max": 1272.0,
       "description": "Length of query parameter string"
     },
     "num_dots": {
-      "mean": 1.8777927472774223,
-      "std": 0.9061673828931998,
+      "mean": 2.1804241843410144,
+      "std": 1.6922924662198349,
       "min": 1.0,
-      "max": 21.0,
+      "max": 29.0,
       "description": "Count of dot (.) delimiters in URL"
     },
     "num_hyphens": {
-      "mean": 1.1452228584259572,
-      "std": 1.7724557279498858,
+      "mean": 1.1005875244801866,
+      "std": 2.232479466544634,
       "min": 0.0,
-      "max": 24.0,
+      "max": 34.0,
       "description": "Count of hyphen (-) characters"
     },
     "num_underscores": {
-      "mean": 0.20029190524306725,
-      "std": 0.6562474138378808,
+      "mean": 0.33068044501854243,
+      "std": 1.2150561151489185,
       "min": 0.0,
-      "max": 24.0,
+      "max": 64.0,
       "description": "Count of underscore (_) characters"
     },
     "num_slashes": {
-      "mean": 4.071853598293477,
-      "std": 1.443562561097902,
+      "mean": 4.3508062835951495,
+      "std": 1.7726139622382848,
       "min": 2.0,
-      "max": 18.0,
+      "max": 37.0,
       "description": "Count of forward slash (/) characters"
     },
     "num_question_marks": {
-      "mean": 0.2944874817559223,
-      "std": 0.4974035018795647,
+      "mean": 0.16867369473728072,
+      "std": 0.4192036272836141,
       "min": 0.0,
-      "max": 3.0,
+      "max": 8.0,
       "description": "Count of question marks (?) in URL"
     },
     "num_equals": {
-      "mean": 0.5940833052655216,
-      "std": 1.169318475430857,
+      "mean": 0.2955956498187424,
+      "std": 1.0076597312679074,
       "min": 0.0,
-      "max": 14.0,
+      "max": 27.0,
       "description": "Count of assignment equals signs (=)"
     },
     "num_at_symbols": {
-      "mean": 0.026215336252385764,
-      "std": 0.16048077957688403,
+      "mean": 0.006000250010417101,
+      "std": 0.07935903637682803,
       "min": 0.0,
       "max": 2.0,
       "description": "Presence of userinfo (@) spoofing symbol"
     },
     "num_ampersands": {
-      "mean": 0.3131245088132929,
-      "std": 0.7944748112236553,
+      "mean": 0.14921455060627525,
+      "std": 0.8745044361021573,
       "min": 0.0,
-      "max": 13.0,
+      "max": 27.0,
       "description": "Count of query parameter separators (&)"
     },
     "num_exclamations": {
-      "mean": 0.0,
-      "std": 0.0,
+      "mean": 0.0008750364598524938,
+      "std": 0.04232080178769016,
       "min": 0.0,
-      "max": 0.0,
+      "max": 3.0,
       "description": "Count of exclamation marks (!)"
     },
     "num_percent": {
-      "mean": 0.01639160211069945,
-      "std": 0.4027367816538487,
+      "mean": 0.1041710071252969,
+      "std": 1.3089913323943256,
       "min": 0.0,
-      "max": 24.0,
+      "max": 83.0,
       "description": "Count of percent encoding indicators (%)"
     },
     "num_digits": {
-      "mean": 5.778994049623892,
-      "std": 9.077542595615766,
+      "mean": 5.639484978540772,
+      "std": 13.046847103919145,
       "min": 0.0,
-      "max": 262.0,
+      "max": 290.0,
       "description": "Total count of numeric characters"
     },
     "digit_ratio": {
-      "mean": 0.08615423262602445,
-      "std": 0.1112044948216969,
+      "mean": 0.06995051460477521,
+      "std": 0.09883644626717204,
       "min": 0.0,
-      "max": 0.6435,
+      "max": 0.6441,
       "description": "Ratio of numeric characters to total URL length"
     },
     "has_ip": {
-      "mean": 0.021949028853710566,
-      "std": 0.14652124123236923,
+      "mean": 0.010292095503979333,
+      "std": 0.10092865169596776,
       "min": 0.0,
       "max": 1.0,
       "description": "Binary flag: whether host is raw IP address"
     },
     "is_https": {
-      "mean": 0.7933647692825867,
-      "std": 0.4049028468317257,
+      "mean": 0.6630692945539397,
+      "std": 0.47267083116373665,
       "min": 0.0,
       "max": 1.0,
       "description": "Binary flag: whether scheme uses TLS/HTTPS"
     },
     "num_subdomains": {
-      "mean": 0.502020882452004,
-      "std": 0.6673626358130338,
+      "mean": 0.5577732405516896,
+      "std": 1.1792375468277299,
       "min": 0.0,
-      "max": 6.0,
+      "max": 22.0,
       "description": "Number of hierarchical subdomain levels"
     },
     "url_entropy": {
-      "mean": 4.350357746716067,
-      "std": 0.30812418319389034,
-      "min": 2.8639,
+      "mean": 4.282431484645193,
+      "std": 0.36457174521536345,
+      "min": 2.5135,
       "max": 6.0217,
       "description": "Shannon information entropy of the full URL"
     },
     "domain_entropy": {
-      "mean": 3.414492606938363,
-      "std": 0.45764027582817407,
-      "min": 1.5,
-      "max": 4.8985,
+      "mean": 3.422570119588316,
+      "std": 0.4102989535400432,
+      "min": 1.3863,
+      "max": 4.9505,
       "description": "Shannon information entropy of the domain"
     },
     "path_entropy": {
-      "mean": 2.8153116256876616,
-      "std": 1.5082115043422306,
+      "mean": 2.902006366931956,
+      "std": 1.5546716499530464,
       "min": 0.0,
-      "max": 5.507,
+      "max": 5.6966,
       "description": "Shannon information entropy of the path"
     },
     "has_shortener": {
-      "mean": 0.023127876950712924,
-      "std": 0.15031382704392104,
+      "mean": 0.00233343055960665,
+      "std": 0.04825020900386507,
       "min": 0.0,
       "max": 1.0,
       "description": "Flag for known URL shortening service"
     },
     "suspicious_tld": {
-      "mean": 0.17823060514202313,
-      "std": 0.3827174922418751,
+      "mean": 0.05433559731655486,
+      "std": 0.22668343858248186,
       "min": 0.0,
       "max": 1.0,
       "description": "Flag for top-level domains frequently abused by phishing"
     },
     "sensitive_keywords_count": {
-      "mean": 0.456831705400247,
-      "std": 0.9791030412972972,
+      "mean": 0.14850618775782323,
+      "std": 0.49679042983827176,
       "min": 0.0,
       "max": 6.0,
       "description": "Count of credential/banking keywords in URL"
     },
     "brand_impersonation": {
-      "mean": 0.13001010441226002,
-      "std": 0.33632399093462007,
+      "mean": 0.05408558689945414,
+      "std": 0.22619122009380724,
       "min": 0.0,
       "max": 1.0,
       "description": "Flag for spoofing high-value brand names or typosquatting"
     },
     "normalized_brand_dist": {
-      "mean": 0.63668463006624,
-      "std": 0.2659999964387452,
+      "mean": 0.6433268052835535,
+      "std": 0.270626993126223,
       "min": 0.0,
       "max": 1.0,
       "description": "Normalized Levenshtein distance to closest target brand"
     },
     "has_punycode": {
-      "mean": 0.022341978219378018,
-      "std": 0.14779729516285925,
+      "mean": 0.00033334722280095006,
+      "std": 0.018255135946488272,
       "min": 0.0,
       "max": 1.0,
       "description": "Flag for IDN Homograph Punycode (xn--) encoding"
     },
     "double_slash_in_path": {
-      "mean": 0.0003368137420006736,
-      "std": 0.018349910093681407,
+      "mean": 0.0020000833368057002,
+      "std": 0.044678475583977764,
       "min": 0.0,
       "max": 1.0,
       "description": "Flag for open redirect bypass syntax (//) in path"
     },
     "has_port_in_url": {
-      "mean": 0.0,
-      "std": 0.0,
+      "mean": 0.001166715279803325,
+      "std": 0.03413799372729559,
       "min": 0.0,
-      "max": 0.0,
+      "max": 1.0,
       "description": "Presence of explicit non-standard port designation"
     },
     "prefix_suffix_hyphen": {
-      "mean": 0.18457393061636915,
-      "std": 0.3879624260129218,
+      "mean": 0.09912913038043251,
+      "std": 0.2988415418578346,
       "min": 0.0,
       "max": 1.0,
       "description": "Presence of hyphens in domain name"
     },
     "consecutive_char_repeat": {
-      "mean": 2.098518019535197,
-      "std": 0.5196471601374235,
+      "mean": 2.1577565731905497,
+      "std": 0.4392758975731614,
       "min": 2.0,
       "max": 15.0,
       "description": "Maximum consecutive identical characters"
     },
     "vowel_to_consonant_ratio": {
-      "mean": 0.5713775906590323,
-      "std": 0.36116521213439445,
+      "mean": 0.6256779490812117,
+      "std": 0.374646210706239,
       "min": 0.0,
-      "max": 4.0,
+      "max": 6.0,
       "description": "Vowel to consonant balance in domain"
     },
     "tld_in_subdomain": {
-      "mean": 0.031548220500729765,
-      "std": 0.17479887152967402,
+      "mean": 0.024626026084420185,
+      "std": 0.15498576006574413,
       "min": 0.0,
       "max": 1.0,
       "description": "Flag for deceptive TLD placement inside subdomain"
@@ -313,159 +313,154 @@
   },
   "global_importance": [
     {
+      "feature": "is_https",
+      "importance": 4.1421,
+      "description": "Binary flag: whether scheme uses TLS/HTTPS"
+    },
+    {
+      "feature": "path_length",
+      "importance": 0.6501,
+      "description": "Length of URL path directory structure"
+    },
+    {
       "feature": "suspicious_tld",
-      "importance": 1.3245,
+      "importance": 0.3044,
       "description": "Flag for top-level domains frequently abused by phishing"
     },
     {
       "feature": "path_entropy",
-      "importance": 1.296,
+      "importance": 0.3002,
       "description": "Shannon information entropy of the path"
     },
     {
-      "feature": "num_equals",
-      "importance": 0.7149,
-      "description": "Count of assignment equals signs (=)"
-    },
-    {
-      "feature": "url_length",
-      "importance": 0.6352,
-      "description": "Total character count of the URL"
-    },
-    {
-      "feature": "path_length",
-      "importance": 0.5962,
-      "description": "Length of URL path directory structure"
-    },
-    {
       "feature": "domain_length",
-      "importance": 0.5602,
+      "importance": 0.2143,
       "description": "Length of host/netloc component"
     },
     {
-      "feature": "num_slashes",
-      "importance": 0.4773,
-      "description": "Count of forward slash (/) characters"
+      "feature": "num_underscores",
+      "importance": 0.1986,
+      "description": "Count of underscore (_) characters"
     },
     {
       "feature": "sensitive_keywords_count",
-      "importance": 0.3322,
+      "importance": 0.1875,
       "description": "Count of credential/banking keywords in URL"
     },
     {
-      "feature": "num_digits",
-      "importance": 0.2663,
-      "description": "Total count of numeric characters"
-    },
-    {
       "feature": "url_entropy",
-      "importance": 0.2518,
+      "importance": 0.166,
       "description": "Shannon information entropy of the full URL"
     },
     {
-      "feature": "digit_ratio",
-      "importance": 0.2438,
-      "description": "Ratio of numeric characters to total URL length"
-    },
-    {
       "feature": "num_hyphens",
-      "importance": 0.212,
+      "importance": 0.1556,
       "description": "Count of hyphen (-) characters"
     },
     {
-      "feature": "num_ampersands",
-      "importance": 0.193,
-      "description": "Count of query parameter separators (&)"
-    },
-    {
-      "feature": "num_subdomains",
-      "importance": 0.1505,
-      "description": "Number of hierarchical subdomain levels"
-    },
-    {
-      "feature": "query_length",
-      "importance": 0.1311,
-      "description": "Length of query parameter string"
-    },
-    {
-      "feature": "is_https",
-      "importance": 0.1294,
-      "description": "Binary flag: whether scheme uses TLS/HTTPS"
+      "feature": "vowel_to_consonant_ratio",
+      "importance": 0.1274,
+      "description": "Vowel to consonant balance in domain"
     },
     {
       "feature": "domain_entropy",
-      "importance": 0.1257,
+      "importance": 0.1213,
       "description": "Shannon information entropy of the domain"
     },
     {
       "feature": "normalized_brand_dist",
-      "importance": 0.0874,
+      "importance": 0.1078,
       "description": "Normalized Levenshtein distance to closest target brand"
     },
     {
-      "feature": "num_underscores",
-      "importance": 0.0848,
-      "description": "Count of underscore (_) characters"
+      "feature": "digit_ratio",
+      "importance": 0.1071,
+      "description": "Ratio of numeric characters to total URL length"
     },
     {
-      "feature": "vowel_to_consonant_ratio",
-      "importance": 0.0814,
-      "description": "Vowel to consonant balance in domain"
-    },
-    {
-      "feature": "has_ip",
-      "importance": 0.0751,
-      "description": "Binary flag: whether host is raw IP address"
-    },
-    {
-      "feature": "num_dots",
-      "importance": 0.0561,
-      "description": "Count of dot (.) delimiters in URL"
-    },
-    {
-      "feature": "num_question_marks",
-      "importance": 0.0471,
-      "description": "Count of question marks (?) in URL"
-    },
-    {
-      "feature": "tld_in_subdomain",
-      "importance": 0.0453,
-      "description": "Flag for deceptive TLD placement inside subdomain"
-    },
-    {
-      "feature": "consecutive_char_repeat",
-      "importance": 0.0437,
-      "description": "Maximum consecutive identical characters"
+      "feature": "num_equals",
+      "importance": 0.098,
+      "description": "Count of assignment equals signs (=)"
     },
     {
       "feature": "prefix_suffix_hyphen",
-      "importance": 0.0247,
+      "importance": 0.0886,
       "description": "Presence of hyphens in domain name"
     },
     {
-      "feature": "has_shortener",
-      "importance": 0.0169,
-      "description": "Flag for known URL shortening service"
+      "feature": "num_subdomains",
+      "importance": 0.0778,
+      "description": "Number of hierarchical subdomain levels"
+    },
+    {
+      "feature": "num_digits",
+      "importance": 0.0642,
+      "description": "Total count of numeric characters"
+    },
+    {
+      "feature": "num_slashes",
+      "importance": 0.0539,
+      "description": "Count of forward slash (/) characters"
+    },
+    {
+      "feature": "consecutive_char_repeat",
+      "importance": 0.0416,
+      "description": "Maximum consecutive identical characters"
+    },
+    {
+      "feature": "query_length",
+      "importance": 0.0393,
+      "description": "Length of query parameter string"
     },
     {
       "feature": "brand_impersonation",
-      "importance": 0.007,
+      "importance": 0.0384,
       "description": "Flag for spoofing high-value brand names or typosquatting"
     },
     {
+      "feature": "num_dots",
+      "importance": 0.0368,
+      "description": "Count of dot (.) delimiters in URL"
+    },
+    {
+      "feature": "url_length",
+      "importance": 0.0366,
+      "description": "Total character count of the URL"
+    },
+    {
+      "feature": "num_ampersands",
+      "importance": 0.0298,
+      "description": "Count of query parameter separators (&)"
+    },
+    {
       "feature": "num_percent",
-      "importance": 0.0022,
+      "importance": 0.0179,
       "description": "Count of percent encoding indicators (%)"
+    },
+    {
+      "feature": "num_at_symbols",
+      "importance": 0.014,
+      "description": "Presence of userinfo (@) spoofing symbol"
+    },
+    {
+      "feature": "tld_in_subdomain",
+      "importance": 0.0124,
+      "description": "Flag for deceptive TLD placement inside subdomain"
+    },
+    {
+      "feature": "has_shortener",
+      "importance": 0.0021,
+      "description": "Flag for known URL shortening service"
+    },
+    {
+      "feature": "num_question_marks",
+      "importance": 0.0003,
+      "description": "Count of question marks (?) in URL"
     },
     {
       "feature": "num_exclamations",
       "importance": 0.0,
       "description": "Count of exclamation marks (!)"
-    },
-    {
-      "feature": "num_at_symbols",
-      "importance": 0.0,
-      "description": "Presence of userinfo (@) spoofing symbol"
     },
     {
       "feature": "has_punycode",
@@ -481,6 +476,11 @@
       "feature": "has_port_in_url",
       "importance": 0.0,
       "description": "Presence of explicit non-standard port designation"
+    },
+    {
+      "feature": "has_ip",
+      "importance": 0.0,
+      "description": "Binary flag: whether host is raw IP address"
     }
   ]
 }

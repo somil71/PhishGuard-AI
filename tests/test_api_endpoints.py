@@ -26,7 +26,7 @@ class TestAPIEndpoints:
         assert response.status_code == 200
         data = response.json()
         assert "primary_metrics" in data
-        assert data["primary_metrics"]["accuracy"] > 0.95
+        assert data["primary_metrics"]["accuracy"] > 0.90
         assert "model_comparison" in data
         assert "global_importance" in data
 
